@@ -1,4 +1,5 @@
 var express = require('express');
+var process = require('child_process');
 var birds = require('./birds');
 var app = express();
 
@@ -8,6 +9,12 @@ app.use('/birds',birds);
 
 app.get('/',function(req,res){
     res.send ('hello world!');
+});
+
+app.get('/git-pull',function(req,res){
+    process.execFile('./git-pull.sh',function(error,stdout,stderr){
+        console.log('exec error:' + error);
+    })
 });
 
 app.post('/',function(req,res){
