@@ -1,0 +1,22 @@
+{
+  "name": "hzjioblog",
+  "version": "1.0.0",
+  "description": "hzjio blog program",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hzjjg/hzjioBlog.git"
+  },
+  "author": "hzj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hzjjg/hzjioBlog/issues"
+  },
+  "homepage": "https://github.com/hzjjg/hzjioBlog#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
