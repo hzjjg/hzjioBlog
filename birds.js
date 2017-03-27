@@ -9,7 +9,7 @@ router.use(function timeLog(req,res,next){
 });
 
 router.get('/',function(req,res){
-    res.send('Birds home page');
+    res.send('Birds home page after update');
 });
 
 router.get('/about',function(req,res){
