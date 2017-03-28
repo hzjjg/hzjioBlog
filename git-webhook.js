@@ -12,3 +12,5 @@ router.post('/git-pull',function(req,res){
         console.log('exec error:' + error);
     });
 });
+
+module.exports = router;
