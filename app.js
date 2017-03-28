@@ -11,7 +11,8 @@ app.get('/',function(req,res){
     res.send ('hello world!');
 });
 
-app.get('/git-pull',function(req,res){
+app.post('/git-pull',function(req,res){
+    console.log(req);
     process.execFile('./git-pull.sh',function(error,stdout,stderr){
         console.log('exec error:' + error);
     })
