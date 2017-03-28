@@ -1,46 +1,49 @@
 var express = require('express');
 var process = require('child_process');
 var birds = require('./birds');
+//webhook
+var webhook = require('./git-webhook');
 var app = express();
 
 app.use(express.static('public'));
 app.use(express.static('files'));
 app.use('/birds',birds);
+app.use('/webhook',webhook)
 
 app.get('/',function(req,res){
     res.send ('hello world!');
 });
 
-app.post('/git-pull',function(req,res){
-    console.log(req);
-    process.execFile('./git-pull.sh',function(error,stdout,stderr){
-        console.log('exec error:' + error);
-    })
-});
+// app.post('/git-pull',function(req,res){
+//     console.log(req);
+//     process.execFile('./git-pull.sh',function(error,stdout,stderr){
+//         console.log('exec error:' + error);
+//     })
+// });
 
-app.post('/',function(req,res){
-    res.send('Got a Post request');
-});
+// app.post('/',function(req,res){
+//     res.send('Got a Post request');
+// });
 
-app.put('/user',function(req,res){
-    res.send('got a put request at /user');
-});
+// app.put('/user',function(req,res){
+//     res.send('got a put request at /user');
+// });
 
-app.delete('/user',function(req,res){
-    res.send('Got a DELETE request at /user');
-});
+// app.delete('/user',function(req,res){
+//     res.send('Got a DELETE request at /user');
+// });
 
-//app.route
-app.route('/book')
-.get(function(req,res){
-    res.send('Get a random book');
-})
-.post(function(req,res){
-    res.send('add a book');
-})
-.put(function(req,res){
-    res.send('update the book');
-});
+// //app.route
+// app.route('/book')
+// .get(function(req,res){
+//     res.send('Get a random book');
+// })
+// .post(function(req,res){
+//     res.send('add a book');
+// })
+// .put(function(req,res){
+//     res.send('update the book');
+// });
 
 var server = app.listen(3000,function(){
     var port = server.address().port;
