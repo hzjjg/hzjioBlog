@@ -1,53 +1,28 @@
+//配置
+var config = require('./config')
+
 var express = require('express');
 
-var birds = require('./birds');
 var webhook = require('./git-webhook');
+var webRouter = require('./web-router');
+var apiRouterV1 = require('./api-router-v1');
 
 var app = express();
 
 app.use(express.static('public'));
 app.use(express.static('files'));
-app.use('/birds',birds);
+
 app.use('/webhook',webhook);
 
-app.get('/',function(req,res){
-    res.send ('hello world!');
-});
+//routers
+app.use('/',webRouter);
+app.use('/api/v1',apiRouterV1);
 
-// app.post('/git-pull',function(req,res){
-//     console.log(req);
-//     process.execFile('./git-pull.sh',function(error,stdout,stderr){
-//         console.log('exec error:' + error);
-//     })
-// });
-
-// app.post('/',function(req,res){
-//     res.send('Got a Post request');
-// });
-
-// app.put('/user',function(req,res){
-//     res.send('got a put request at /user');
-// });
-
-// app.delete('/user',function(req,res){
-//     res.send('Got a DELETE request at /user');
-// });
-
-// //app.route
-// app.route('/book')
-// .get(function(req,res){
-//     res.send('Get a random book');
-// })
-// .post(function(req,res){
-//     res.send('add a book');
-// })
-// .put(function(req,res){
-//     res.send('update the book');
-// });
-
-var server = app.listen(3000,function(){
+var server = app.listen(config.port,function(){
     var port = server.address().port;
     var host = server.address().host;
-
     console.log('express app listening ad http://%s:%s',host,port);
 });
+
+//为什么要exports？
+module.exports = app;
