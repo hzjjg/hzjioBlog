@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/hzjjg/hzjioBlog#readme",
   "dependencies": {
-    "express": "^4.15.2"
+    "cors": "^2.8.2",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.2",
+    "pm2": "^2.4.2"
   }
 }

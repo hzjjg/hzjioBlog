@@ -17,6 +17,8 @@ router.get('/posts', function (req, res) {
         ]
     });
 });
+
+
 router.post('/posts', function (req, res) {
     res.send('post posts');
 });
@@ -25,6 +27,7 @@ router.get('/post/', function (req, res) {
     console.log(req);
     res.send('request post');
 });
+
 router.post('/post', function (req, res) {
     res.send('post post');
 });
