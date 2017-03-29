@@ -9,7 +9,7 @@ var process = require('child_process');
 
 router.post('/git-pull',function(req,res){
     process.execFile('./git-pull.sh',function(error,stdout,stderr){
-        console.log('exec error:' + error);
+       res.send('exec error:' + error);
     });
 });
 
