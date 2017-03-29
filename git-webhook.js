@@ -11,6 +11,7 @@ router.post('/git-pull',function(req,res){
     process.execFile('./git-pull.sh',function(error,stdout,stderr){
        res.send('exec error:' + error);
     });
+    res.send('updating website');
 });
 
 module.exports = router;
