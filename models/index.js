@@ -7,3 +7,7 @@ mongoose.connect('127.0.0.1:27017',{
     console.log('connect to %s error: ', config.db, err.message);
 });
 
+//models
+require('./post');
+
+exports.Post = mongoose.model('Post');

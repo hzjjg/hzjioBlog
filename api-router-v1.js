@@ -1,4 +1,5 @@
 var express = require('express');
+var postController = require('./api/v1/post')
 
 var router = express.Router();
 
@@ -7,33 +8,13 @@ router.get('/', function (req, res) {
     res.send('hzjio.com')
 });
 
-//posts
-router.get('/posts', function (req, res) {
-    res.json({
-        code: 0,
-        data: [
-            { id: 1 },
-            { id: 2 }
-        ]
-    });
-});
+//post
+router.get('/posts', postController.index);
 
-
-router.post('/posts', function (req, res) {
-    res.send('post posts');
-});
-
-router.get('/post/', function (req, res) {
-    console.log(req);
-    res.send('request post');
-});
-
-router.post('/post', function (req, res) {
-    res.send('post post');
-});
-router.delete('/post', function (req, res) {
-    res.send('delete post')
-});
+router.get('/post', postController.show);
+router.post('/post', postController.create);
+router.put('/post', postController.update);
+router.delete('/post', postController.delete);
 
 //tags
 
