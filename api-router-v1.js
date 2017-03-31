@@ -10,11 +10,10 @@ router.get('/', function (req, res) {
 
 //post
 router.get('/posts', postController.index);
-
-router.get('/post', postController.show);
-router.post('/post', postController.create);
-router.put('/post', postController.update);
-router.delete('/post', postController.delete);
+router.post('/posts', postController.create);
+router.get('/posts/:id', postController.show);
+router.put('/posts/:id', postController.update);
+router.delete('/posts/:id', postController.delete);
 
 //tags
 
