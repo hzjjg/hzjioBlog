@@ -1,15 +1,15 @@
+const fs = require('fs');
+const express = require('express');
+const cors = require('cors');
+
 //配置
-var config = require('./config')
+const config = fs.existsSync('./confighaha.js')? require('./config'):require('./config.default');
 
-var express = require('express');
-var cors = require('cors');
+const webhook = require('./git-webhook');
+const webRouter = require('./web-router');
+const apiRouterV1 = require('./api-router-v1');
 
-
-var webhook = require('./git-webhook');
-var webRouter = require('./web-router');
-var apiRouterV1 = require('./api-router-v1');
-
-var app = express();
+const app = express();
 
 app.use(express.static('public'));
 app.use(express.static('files'));
@@ -32,5 +32,4 @@ var server = app.listen(config.port,function(){
     console.log('express app listening at http://%s:%s',host,port);
 });
 
-//为什么要exports？
 module.exports = app;
