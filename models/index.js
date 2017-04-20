@@ -1,16 +1,15 @@
-var mongoose = require('mongoose');
-var config = require('../config');
+const mongoose = require('mongoose');
+const config = require('../config');
 
-mongoose.connect('127.0.0.1:27017',{
-    server:{poolsize:20}
-},function(err){
-    console.log('connect to %s error: ', config.db, err.message);
-});
+//mongooose
+mongoose.connect('mongodb://127.0.0.1:27017/hzjio_blog_dev',function(err){
+  if(err){
+    console.log(err);
+    process.exit(1);
+  }
+})
 
-<<<<<<< HEAD
-=======
 //models
 require('./post');
 
 exports.Post = mongoose.model('Post');
->>>>>>> 96a7dfddbe2dab435c68cb6256c64ea779ec431e

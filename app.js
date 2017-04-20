@@ -3,7 +3,18 @@ const express = require('express');
 const cors = require('cors');
 
 //配置
-const config = fs.existsSync('./confighaha.js')? require('./config'):require('./config.default');
+const config =  require('./config');
+
+
+// //mongooose
+// mongoose.connect('mongodb://127.0.0.1:27017/hzjio_blog_dev',function(err){
+//   if(err){
+//     console.log(err);
+//     process.exit(1);
+//   } 
+// })
+
+
 
 const webhook = require('./git-webhook');
 const webRouter = require('./web-router');

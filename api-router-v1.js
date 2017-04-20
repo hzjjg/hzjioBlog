@@ -23,6 +23,4 @@ router.delete('/posts/:id', postController.delete);
 
 //comments
 
-
-
 module.exports = router;

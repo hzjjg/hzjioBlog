@@ -1,5 +1,5 @@
 /**
- * config
+ * config default
  */
 
 var path = require('path');
